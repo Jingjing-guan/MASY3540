@@ -124,8 +124,37 @@ def exercise07(n):
 
 # ------ Place code below here \/ \/ \/ ------
 def display_menu():
-    
+    check_menu_type = type(menu)
+    if  check_menu_type != tuple :
+        return -1
 
+    num_of_elements = len(menu)
+    print('there are',num_of_elements,'elements in the menu')
+   
+    
+    
+    menu_options = []
+    menu_index =1
+    for i in menu:
+        menu_options.append(menu_index,i)
+        menu_index =menu_index+1
+    
+    
+    shopping_list=[]
+    still_ordering = True
+    user_order =-1
+    while still_ordering:
+        for i in menu:
+            print(menu_index,i)
+        user_order=int(input('select a menu item by entering a number and hitting Enter'))
+        
+        if user_order>len(menu):
+            print('there has some error,please check your numbers.')
+        
+        else:
+            shopping_list.append(menu_options[user_order-1])
+            print(shopping_list)
+        
 
 # ------ Place code above here /\ /\ /\ ------
 
